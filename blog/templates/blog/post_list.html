@@ -2,7 +2,7 @@
 
 {% block main_area %}
 
-    <h1>Blog</h1>
+    <h1>Blog {% if category %} <span class="badge bg-secondary">{{ category }}</span> {% endif %}</h1>
     {% if post_list.exists %}
 
             {% for p in post_list %}
@@ -23,7 +23,7 @@
 
                         <h2 class="card-title">{{ p.title }}</h2>
                         <p class="card-text">{{ p.content | truncatewords:45 }}</p>
-                        <a href="{{ p.id }}" class="btn btn-primary">Read More &rarr;</a>
+                        <a href="/blog/{{ p.id }}" class="btn btn-primary">Read More &rarr;</a>
                     </div>
                     <div class="card-footer text-muted">
                         Posted on {{ p.create_at }}
