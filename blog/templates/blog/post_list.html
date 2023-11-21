@@ -2,6 +2,12 @@
 
 {% block main_area %}
 
+    {% if user.is_authenticated %}
+        {% if user.is_superuser or user.is_staff %}
+            <a class="btn btn-info btn-sm float-end" href="/blog/create_post/" role="button"><i class="fa fa-tags"></i> NEW POST</a>
+        {% endif %}
+    {% endif %}
+
     <h1>Blog
         {% if category %} <span class="badge bg-secondary">{{ category }}</span> {% endif %}
         {% if tags %} <span class="bg-info text-dark"><i class="fa fa-tags"></i>{{ tags }} ({{ tags.post_set.count }})</span> {% endif %}
