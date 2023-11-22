@@ -31,8 +31,6 @@ class Post(models.Model):
     # DB col을 생성, model -> title
     title = models.CharField(max_length=30)
 
-    hook_text = models.CharField(max_length=100, blank=True)
-
     # DB col을 생성, model -> content
     content = models.TextField()
 
